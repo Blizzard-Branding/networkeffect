@@ -57,8 +57,6 @@ comment in `index.html` at the spot it applies to.
 | Social share URL and image | `<meta property="og:*">` in `<head>` | Needs your real domain and a 1200×630 image. |
 | Professions list | "Who it's for" section | Swap the placeholder tags for the trades actually represented in the room. |
 | Cost | FAQ | Points at the Eventbrite listing. Add membership dues if they differ from the meeting ticket. |
-| One-per-profession policy | FAQ | Replace with your actual rule. |
-| Discord access for guests | FAQ | Confirm whether the invite is open to non-members. |
 
 Nothing on the page invents a member count, a testimonial, or a price. If you
 want social proof on there, add it once you have real quotes to use.
@@ -70,12 +68,14 @@ want social proof on there, add it once you have real quotes to use.
 - Mission statement, in full
 - The four "What we'll do together" commitments
 - Meeting time: Wednesdays, 11:45am – 1:30pm, as a standing weekly commitment
-- The attendance philosophy, including the deliberate departure from BNI's
-  rules: no substitute-representative requirement, no annual cap on misses.
-  This now lives in the FAQ ("What happens if I miss a meeting?") rather than
-  a section of its own.
-- The Convener's standing menu of activities, in place of a fixed weekly
-  format. Also in the FAQ ("What actually happens in a meeting?").
+- The attendance philosophy: no substitute-representative requirement, no
+  annual cap on misses. In the FAQ ("What happens if I miss a meeting?").
+  A later revision dropped the explicit BNI comparison from the page and added
+  the virtual attendance option and the ask to contribute in other ways.
+- The standing menu of activities, in place of a fixed weekly format. In the
+  FAQ ("What actually happens in a meeting?"). Note the page credits this to
+  "the MCs" per a later revision, while the charter says "the Convener".
+  Worth reconciling in one direction or the other.
 - The DEIB+ "bridge, not a mirror" statement, in full
 
 **Supplied directly:**
