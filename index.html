@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Network Effect — Connect. Contribute. Grow.</title>
-<meta name="description" content="A business networking group done differently. A trusted circle of independent professionals in Sacramento who refer each other with confidence. Wednesdays, 12–1:30pm." />
+<meta name="description" content="A business networking group done differently. A trusted circle of independent professionals in Sacramento who refer each other with confidence. Wednesdays, 11:45am–1:30pm." />
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Network Effect — Connect. Contribute. Grow." />
-<meta property="og:description" content="A trusted circle of independent professionals in Sacramento who refer each other with confidence. We meet Wednesdays, 12–1:30pm." />
+<meta property="og:description" content="A trusted circle of independent professionals in Sacramento who refer each other with confidence. We meet Wednesdays, 11:45am–1:30pm." />
 <!-- TODO: replace with your deployed URL + a 1200x630 share image committed to /assets -->
 <meta property="og:url" content="https://networkeffect.example.com/" />
 <meta property="og:image" content="https://networkeffect.example.com/assets/og.png" />
@@ -36,12 +36,15 @@
   --orange-600:#DD6A13;
 
   --teal-500:#178C8C;
+  --teal-600:#11787A;  /* readable stop for the white-on-teal card */
   --teal-900:#0A3A54;
 
   --tan-300:#C09C64;
+  --tan-600:#6B5828;   /* readable stop for text-bearing tan panels */
   --tan-800:#4C3F1C;
 
   --peri-200:#BFCDE1;
+  --peri-500:#9AA2C4;  /* readable stop for text-bearing periwinkle panels */
   --peri-600:#6B709C;
 
   --cream-200:#EFE8DC;
@@ -140,6 +143,10 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
   outline:3px solid var(--orange-300);outline-offset:3px;border-radius:6px;
 }
 @media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+@media (max-width:400px){
+  .btn{white-space:normal;text-align:center}
+  .btn-lg{padding-inline:22px}
+}
 
 /* ---------- nav ---------- */
 .nav{
@@ -264,7 +271,7 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
 /* ---------- meeting card (teal) ---------- */
 .meet{
   border-radius:var(--radius-lg);
-  background:linear-gradient(170deg,var(--teal-500) 0%,var(--teal-900) 100%);
+  background:linear-gradient(170deg,var(--teal-600) 0%,var(--teal-900) 100%);
   padding:clamp(34px,6vw,64px) clamp(26px,5vw,60px);
   box-shadow:var(--shadow-card);
 }
@@ -296,46 +303,70 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
   padding:9px 18px;font-size:.92rem;color:#C7D0DE;background:rgba(191,205,225,.05);
 }
 
-/* ---------- apply ---------- */
-.apply{background:var(--white-200);color:var(--ink-dark)}
-.apply .sec-head p{color:var(--ink-dark-muted)}
-.apply-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,72px);align-items:start}
-@media (max-width:900px){.apply-inner{grid-template-columns:1fr}}
-.apply h2{font-size:clamp(1.85rem,4.6vw,3rem)}
-.apply-note{
+/* ---------- panels (commitment / format) ---------- */
+.duo{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.panel{
+  border-radius:var(--radius-md);
+  padding:clamp(28px,4vw,40px);
+  display:flex;flex-direction:column;
+}
+.panel h3{font-size:clamp(1.25rem,2.6vw,1.55rem);font-weight:500;margin-bottom:16px}
+.panel p{margin:0 0 16px;font-size:1rem;line-height:1.62}
+.panel p:last-of-type{margin-bottom:0}
+.panel-tag{
+  margin-top:auto;padding-top:22px;
+  font-family:var(--font-display);font-size:.92rem;letter-spacing:.02em;
+  border-top:1px solid currentColor;opacity:.72;
+}
+.panel-tan{background:linear-gradient(165deg,var(--tan-600),var(--tan-800));color:#F6F1E6}
+.panel-tan .panel-tag{opacity:.85}
+.panel-peri{background:linear-gradient(165deg,var(--peri-200),var(--peri-500));color:var(--ink-dark)}
+
+/* ---------- belonging ---------- */
+.belong{
+  border-radius:var(--radius-lg);
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-left:4px solid var(--teal-500);
+  padding:clamp(34px,6vw,64px) clamp(26px,5vw,60px);
+}
+.belong h2{font-size:clamp(1.7rem,4.2vw,2.7rem);margin-bottom:26px}
+.belong p{margin:0 0 18px;max-width:70ch;color:#C7D0DE;font-size:clamp(1rem,2vw,1.08rem)}
+.belong p:last-child{margin-bottom:0}
+
+/* ---------- register ---------- */
+.register{background:var(--white-200);color:var(--ink-dark)}
+.register-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(32px,6vw,72px);align-items:start}
+@media (max-width:900px){.register-inner{grid-template-columns:1fr}}
+.register h2{font-size:clamp(1.85rem,4.6vw,3rem)}
+.register-lede{margin-top:20px;max-width:48ch;color:var(--ink-dark-muted);font-size:1.03rem}
+.register-note{
   margin-top:26px;padding:20px 22px;border-radius:var(--radius-sm);
   background:rgba(23,140,140,.1);border-left:3px solid var(--teal-500);
   font-size:.95rem;color:#2B3440;
 }
 
-form{display:grid;gap:18px}
-.field{display:grid;gap:7px}
-.field label{font-size:.88rem;font-weight:600;letter-spacing:.01em}
-.field .hint{font-size:.82rem;color:var(--ink-dark-muted);font-weight:400}
-.field input,.field select,.field textarea{
-  font:inherit;font-size:1rem;color:var(--ink-dark);
+.ticket-card{
   background:var(--white-50);
-  border:1px solid rgba(17,22,42,.18);
-  border-radius:var(--radius-sm);
-  padding:13px 15px;width:100%;
-  transition:border-color .18s ease,box-shadow .18s ease;
+  border:1px solid rgba(17,22,42,.1);
+  border-radius:var(--radius-md);
+  padding:clamp(26px,4vw,38px);
+  box-shadow:0 18px 44px -26px rgba(10,20,40,.35);
 }
-.field textarea{min-height:118px;resize:vertical}
-.field input:focus,.field select:focus,.field textarea:focus{
-  border-color:var(--teal-500);box-shadow:0 0 0 3px rgba(23,140,140,.18);outline:none;
+.ticket-kicker{
+  margin:0 0 22px;font-family:var(--font-display);
+  font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal-900);
 }
-.field[data-invalid="true"] input,.field[data-invalid="true"] select,.field[data-invalid="true"] textarea{
-  border-color:#B3320F;box-shadow:0 0 0 3px rgba(179,50,15,.14);
-}
-.err{font-size:.82rem;color:#9C2C0D;font-weight:600;min-height:0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media (max-width:560px){.two{grid-template-columns:1fr}}
-.form-status{
-  margin:0;padding:14px 16px;border-radius:var(--radius-sm);font-size:.95rem;font-weight:500;
-}
-.form-status[data-tone="ok"]{background:rgba(23,152,14,.13);color:#12610C;border:1px solid rgba(23,152,14,.3)}
-.form-status[data-tone="bad"]{background:rgba(179,50,15,.1);color:#8C280B;border:1px solid rgba(179,50,15,.28)}
-.form-status[hidden]{display:none}
+.ticket-rows{display:grid;gap:18px;margin:0 0 30px}
+.ticket-row{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start}
+.ticket-row dt{font-weight:700;font-size:.86rem;letter-spacing:.02em;color:var(--ink-dark-muted);padding-top:2px}
+.ticket-row dd{margin:0;font-size:1.04rem;line-height:1.45}
+.ticket-row dd small{display:block;font-size:.87rem;color:var(--ink-dark-muted);margin-top:4px}
+.ticket-row a{color:var(--teal-900)}
+@media (max-width:420px){.ticket-row{grid-template-columns:1fr;gap:2px}}
+.ticket-cta{width:100%;white-space:normal;text-align:center}
+.ticket-foot{margin:14px 0 0;font-size:.84rem;color:var(--ink-dark-muted);text-align:center}
 
 /* ---------- faq ---------- */
 .faq-list{display:grid;gap:0;border-top:1px solid var(--rule)}
@@ -356,7 +387,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
 /* ---------- final cta ---------- */
 .final{
   border-radius:var(--radius-lg);
-  background:linear-gradient(170deg,var(--peri-200) 0%,var(--peri-600) 100%);
+  background:linear-gradient(170deg,var(--peri-200) 0%,var(--peri-500) 100%);
   color:var(--ink-dark);
   padding:clamp(40px,7vw,76px) clamp(26px,5vw,64px);
   text-align:center;box-shadow:var(--shadow-card);
@@ -380,7 +411,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
 </head>
 
 <body>
-<a class="skip" href="#apply">Skip to the application</a>
+<a class="skip" href="#register">Skip to registration</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
@@ -388,10 +419,11 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#how">How it works</a>
+      <a href="#commitment">How we run it</a>
       <a href="#meetings">Meetings</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary" href="#apply">Apply<span class="cta-long">&nbsp;to join</span></a>
+    <a class="btn btn-primary" href="#register">Get<span class="cta-long">&nbsp;tickets</span></a>
   </div>
 </header>
 
@@ -409,13 +441,13 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           each other with confidence — and who show up every week to earn it.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="#apply">Apply to join</a>
+          <a class="btn btn-primary btn-lg" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register on Eventbrite</a>
           <a class="btn btn-ghost btn-lg" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">
             Join the Discord
           </a>
         </div>
         <p class="hero-meta">
-          <span><strong>Wednesdays</strong> · 12–1:30pm</span>
+          <span><strong>Wednesdays</strong> · 11:45am–1:30pm</span>
           <span><strong>Sacramento</strong> · 5580 Power Inn Rd</span>
         </p>
       </div>
@@ -429,19 +461,20 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
         <h2>A business networking group done differently.</h2>
         <p>
           We exist to build a trusted circle of independent professionals who
-          refer each other with confidence. We do this through intentional
-          relationships, honest support, and a shared commitment to helping each
-          other grow and prosper.
+          refer each other with confidence — because we have taken the time to
+          actually know each other's work, not just each other's business cards.
+          We do this through intentional relationships, honest support, and a
+          shared commitment to helping each other grow and prosper.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ================= PILLARS ================= -->
+  <!-- ================= WHAT WE DO TOGETHER ================= -->
   <section class="section" style="padding-top:clamp(16px,3vw,40px)">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow">What "differently" means</p>
+        <p class="eyebrow">What we'll do together</p>
         <h2>Referrals are a by-product of trust, not a quota.</h2>
         <p class="lede">
           Plenty of groups will hand you a lead sheet. We would rather you knew
@@ -454,21 +487,21 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           <span class="ico" style="background:rgba(221,106,19,.16)" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EFBE62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
           </span>
-          <h3>Referrals you can stand behind</h3>
+          <h3>Getting to know each other's work</h3>
           <p>
-            When a member sends you a name, they have already vouched for you.
-            That only works if we know each other's work properly.
+            Not just each other's business cards. Knowing how someone actually
+            works is what makes a referral worth making.
           </p>
         </article>
 
         <article class="pillar reveal">
           <span class="ico" style="background:rgba(23,140,140,.18)" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#178C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#178C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
           </span>
-          <h3>Relationships before transactions</h3>
+          <h3>Learning and growing together</h3>
           <p>
-            Intentional relationships are the whole method. The business follows
-            from them, rather than the other way round.
+            Everyone in the room is running something. There is a lot to be
+            picked up from people solving the same problems you are.
           </p>
         </article>
 
@@ -476,18 +509,18 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           <span class="ico" style="background:rgba(192,156,100,.2)" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C09C64" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </span>
-          <h3>Honest support</h3>
+          <h3>Supporting each other</h3>
           <p>
-            Running something on your own is hard. This is a room where you can
-            say so, and get a straight answer rather than a pitch.
+            Working for yourself is hard. This is a room where you can say so and
+            get honest support rather than a pitch.
           </p>
         </article>
 
         <article class="pillar reveal">
           <span class="ico" style="background:rgba(155,230,23,.16)" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9BE617" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9BE617" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5s1.2 1.5 3.5 1.5 3.5-1.5 3.5-1.5"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>
           </span>
-          <h3>Grow and prosper — together</h3>
+          <h3>Creating positivity through community</h3>
           <p>
             Every member who gets stronger makes the circle worth more to
             everyone else in it. That is the network effect, literally.
@@ -508,15 +541,15 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
       <div class="grid steps">
         <article class="step reveal">
           <h3>Come as a guest</h3>
-          <p>Tell us you are coming, then sit in on a Wednesday meeting and see whether the room suits you.</p>
+          <p>Register for a Wednesday meeting and sit in as a guest, to see whether the room suits you.</p>
         </article>
         <article class="step reveal">
           <h3>Meet the members</h3>
           <p>Get to know what people actually do, and let them get to know what you do. Arrive 15 minutes early — that is when most of it happens.</p>
         </article>
         <article class="step reveal">
-          <h3>Apply</h3>
-          <p>Send in the form below. We will talk it through with you and let you know where things stand.</p>
+          <h3>Register</h3>
+          <p>Reserve your seat on Eventbrite so we know to expect you. It takes a minute and you get a reminder before the day.</p>
         </article>
         <article class="step reveal">
           <h3>Start contributing</h3>
@@ -535,8 +568,8 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           <div class="meet-row">
             <dt>When</dt>
             <dd>
-              Wednesdays, 12 – 1:30pm
-              <small>People arrive 15 minutes early to socialise.</small>
+              Wednesdays, 11:45am – 1:30pm
+              <small>Every week, all year.</small>
             </dd>
           </div>
           <div class="meet-row">
@@ -555,6 +588,76 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           </div>
           <a class="btn btn-dark" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">Open invite</a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COMMITMENT + FORMAT ================= -->
+  <section class="section" id="commitment">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">How we run it</p>
+        <h2>A standing commitment, not a set of penalties.</h2>
+      </div>
+
+      <div class="grid duo">
+        <article class="panel panel-tan reveal">
+          <h3>On showing up</h3>
+          <p>
+            We ask members to treat Wednesday as a standing weekly commitment.
+            Showing up consistently is part of what makes the trust and the
+            referrals here real.
+          </p>
+          <p>
+            We have also deliberately not imported BNI's stricter attendance
+            rules. There is no substitute-representative requirement, and no cap
+            on how many meetings you can miss in a year. We trust each other to
+            say when we cannot make it, and to show up as consistently as our
+            businesses allow.
+          </p>
+          <p class="panel-tag">Positive reinforcement over policing attendance.</p>
+        </article>
+
+        <article class="panel panel-peri reveal">
+          <h3>On the meeting itself</h3>
+          <p>
+            There is no fixed weekly format. The Convener draws from a standing
+            menu of activities each week, choosing what fits the group's time,
+            energy, and the news of the moment.
+          </p>
+          <p>
+            That keeps meetings responsive instead of rigid — the same
+            instinct behind how we handle attendance and referrals.
+          </p>
+          <p class="panel-tag">Responsive, not rigid.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BELONGING ================= -->
+  <section class="section" id="belonging" style="padding-top:clamp(8px,2vw,24px)">
+    <div class="wrap">
+      <div class="belong reveal">
+        <p class="eyebrow">DEIB+ · On belonging</p>
+        <h2>A bridge, not a mirror.</h2>
+        <p>
+          We want this to be a room where people show up as themselves —
+          regardless of race, ethnicity, gender, sexual orientation, religion,
+          age, ability, or background — and are judged on the quality of their
+          work and character, nothing else.
+        </p>
+        <p>
+          This group is meant to be a bridge, not a mirror: a place that connects
+          people across difference, rather than one that just reflects who is
+          already in the room.
+        </p>
+        <p>
+          Trust and referrals are easiest to extend to people who already look
+          and sound like us. So as we grow, we will stay intentional about who is
+          in the room, who is doing the inviting, and whether our own habits are
+          quietly narrowing the circle instead of widening it.
+        </p>
       </div>
     </div>
   </section>
@@ -586,77 +689,51 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     </div>
   </section>
 
-  <!-- ================= APPLY ================= -->
-  <section class="section apply" id="apply">
-    <div class="wrap apply-inner">
+  <!-- ================= REGISTER ================= -->
+  <!-- Registration is handled entirely by Eventbrite. There is no form on this
+       site, so there is no endpoint to configure and no attendee data here. -->
+  <section class="section register" id="register">
+    <div class="wrap register-inner">
       <div class="reveal">
-        <p class="eyebrow on-light">Apply to join</p>
-        <h2>Tell us about your business.</h2>
-        <p style="color:var(--ink-dark-muted);margin-top:18px;max-width:46ch">
-          A few questions, honestly answered, is all we need to start the
-          conversation. We read every application.
+        <p class="eyebrow on-light">Come to a meeting</p>
+        <h2>Grab a seat for the next Wednesday.</h2>
+        <p class="register-lede">
+          Registration runs through Eventbrite, so you will get a confirmation
+          and a reminder before the day. Guests are welcome — come and see
+          whether the room suits you before you think about joining.
         </p>
-        <div class="apply-note">
-          <strong>Prefer to just turn up?</strong> Come to a Wednesday meeting as
-          a guest, or say hello first in
-          <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener" style="color:#0A3A54">our Discord</a>.
+        <div class="register-note">
+          <strong>Questions first?</strong> Say hello in
+          <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener" style="color:#0A3A54">our Discord</a>
+          and someone will get back to you.
         </div>
       </div>
 
-      <form id="apply-form" novalidate>
-        <div class="two">
-          <div class="field">
-            <label for="f-name">Full name</label>
-            <input id="f-name" name="name" type="text" autocomplete="name" required />
-            <p class="err" data-err-for="f-name" aria-live="polite"></p>
+      <div class="ticket-card reveal">
+        <p class="ticket-kicker">Network Effect · weekly meeting</p>
+        <dl class="ticket-rows">
+          <div class="ticket-row">
+            <dt>When</dt>
+            <dd>Wednesdays, 11:45am – 1:30pm<small>Weekly, all year round.</small></dd>
           </div>
-          <div class="field">
-            <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" autocomplete="email" required />
-            <p class="err" data-err-for="f-email" aria-live="polite"></p>
+          <div class="ticket-row">
+            <dt>Where</dt>
+            <dd>
+              Sparkle Professional Cleaning<br />
+              <a href="https://maps.google.com/?q=5580+Power+Inn+Rd,+Sacramento,+CA" target="_blank" rel="noopener">5580 Power Inn Rd, Sacramento</a>
+            </dd>
           </div>
-        </div>
-
-        <div class="two">
-          <div class="field">
-            <label for="f-business">Business name</label>
-            <input id="f-business" name="business" type="text" autocomplete="organization" required />
-            <p class="err" data-err-for="f-business" aria-live="polite"></p>
+          <div class="ticket-row">
+            <dt>Who</dt>
+            <dd>Members and guests</dd>
           </div>
-          <div class="field">
-            <label for="f-phone">Phone <span class="hint">(optional)</span></label>
-            <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
-          </div>
-        </div>
-
-        <div class="field">
-          <label for="f-trade">What do you do?</label>
-          <input id="f-trade" name="trade" type="text" placeholder="e.g. residential electrician, family law, bookkeeping" required />
-          <p class="err" data-err-for="f-trade" aria-live="polite"></p>
-        </div>
-
-        <div class="field">
-          <label for="f-heard">How did you hear about us? <span class="hint">(optional)</span></label>
-          <select id="f-heard" name="heard">
-            <option value="">Select one…</option>
-            <option>A current member</option>
-            <option>Visited a meeting</option>
-            <option>Discord</option>
-            <option>Social media</option>
-            <option>Search</option>
-            <option>Other</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="f-why">Why do you want to join?</label>
-          <textarea id="f-why" name="why" required placeholder="What you are hoping to get from the group — and what you would bring to it."></textarea>
-          <p class="err" data-err-for="f-why" aria-live="polite"></p>
-        </div>
-
-        <button class="btn btn-primary btn-lg" type="submit" style="justify-self:start">Send application</button>
-        <p class="form-status" id="form-status" hidden></p>
-      </form>
+        </dl>
+        <a class="btn btn-primary btn-lg ticket-cta" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">
+          Register on Eventbrite
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+        </a>
+        <p class="ticket-foot">Opens Eventbrite in a new tab. Ticket details and pricing are shown there.</p>
+      </div>
     </div>
   </section>
 
@@ -665,48 +742,68 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow">Questions</p>
-        <h2>Before you apply.</h2>
+        <h2>Before you come along.</h2>
       </div>
 
       <div class="faq-list reveal">
         <details>
           <summary>When and where do you meet?</summary>
           <p>
-            Wednesdays from 12 to 1:30pm at Sparkle Professional Cleaning,
-            5580 Power Inn Rd, Sacramento. Most people arrive about 15 minutes
-            early to catch up before the meeting starts.
+            Every Wednesday from 11:45am to 1:30pm at Sparkle Professional
+            Cleaning, 5580 Power Inn Rd, Sacramento.
           </p>
         </details>
         <details>
-          <summary>Can I visit before applying?</summary>
+          <summary>Can I visit before joining?</summary>
           <p>
             Yes — visiting first is the best way to work out whether the group is
-            right for you. Let us know in the Discord that you are coming, or
-            mention it in your application.
+            right for you. Register on Eventbrite for the Wednesday you want to
+            come along to, and we will be expecting you.
           </p>
         </details>
         <details>
-          <summary>What does it cost to join?</summary>
-          <!-- TODO: replace with your real dues / fee structure. -->
+          <summary>What does it cost?</summary>
+          <!-- TODO: confirm this matches the Eventbrite listing, and add your
+               membership dues here if they differ from the meeting ticket. -->
           <p>
-            Get in touch and we will walk you through the current membership
-            terms before you commit to anything.
+            Whatever a seat at the meeting costs is shown on the
+            <a href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Eventbrite listing</a>.
+            Ask us about ongoing membership terms when you visit.
           </p>
         </details>
         <details>
           <summary>Do you take more than one person per profession?</summary>
           <!-- TODO: confirm your policy on overlapping professions and replace this answer. -->
           <p>
-            Ask us when you apply. We will tell you honestly whether your line of
+            Ask us when you visit. We will tell you honestly whether your line of
             work is already well covered in the room.
           </p>
         </details>
         <details>
           <summary>What is expected of members?</summary>
           <p>
-            Turn up regularly, learn what the other members actually do, and pass
-            on referrals you would be comfortable making with your own name
-            attached. That is the whole deal.
+            Treat Wednesday as a standing weekly commitment, learn what the other
+            members actually do, and pass on referrals you would be comfortable
+            making with your own name attached. That is the whole deal.
+          </p>
+        </details>
+        <details>
+          <summary>What happens if I miss a meeting?</summary>
+          <p>
+            You tell us, and that is it. We have deliberately not adopted BNI's
+            stricter attendance rules: there is no substitute-representative
+            requirement and no cap on how many meetings you can miss in a year.
+            We would rather trust each other to show up as consistently as our
+            businesses allow than police a register.
+          </p>
+        </details>
+        <details>
+          <summary>What actually happens in a meeting?</summary>
+          <p>
+            There is no fixed weekly format. The Convener picks from a standing
+            menu of activities each week, based on the group's time, energy, and
+            whatever is going on that week. It keeps the meeting responsive
+            rather than rigid.
           </p>
         </details>
         <details>
@@ -728,10 +825,10 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
         <h2>Connect. Contribute. Grow.</h2>
         <p>
           The circle is only as good as the people in it. If that sounds like the
-          room you have been looking for, come and find us on a Wednesday.
+          room you have been looking for, book a seat for this Wednesday.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-dark btn-lg" href="#apply">Apply to join</a>
+          <a class="btn btn-dark btn-lg" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register on Eventbrite</a>
           <a class="btn btn-ghost btn-lg" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener" style="border-color:rgba(17,22,42,.3);color:var(--ink-dark)">Join the Discord</a>
         </div>
       </div>
@@ -745,26 +842,15 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     <p style="margin:0">© <span id="year">2026</span> Network Effect · Sacramento, CA</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="#about">About</a>
+      <a href="#commitment">How we run it</a>
       <a href="#meetings">Meetings</a>
-      <a href="#apply">Apply</a>
+      <a href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register</a>
       <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">Discord</a>
     </nav>
   </div>
 </footer>
 
 <script>
-/* ============================================================
-   CONFIG — set these before going live. See README.md.
-   ============================================================ */
-const CONFIG = {
-  // A form endpoint that accepts a POST (Formspree, Basin, Netlify Forms,
-  // Getform, a Google Apps Script web app…). Leave blank to fall back to email.
-  formEndpoint: "",
-  // Used as the fallback when formEndpoint is blank: opens the visitor's mail
-  // client with the application pre-filled.
-  contactEmail: ""
-};
-
 /* ---------- footer year ---------- */
 document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -867,102 +953,6 @@ if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObse
   });
 })();
 
-/* ---------- application form ---------- */
-(function applyForm() {
-  const form = document.getElementById("apply-form");
-  const status = document.getElementById("form-status");
-  if (!form) return;
-
-  const setErr = (input, msg) => {
-    const field = input.closest(".field");
-    const slot = form.querySelector('[data-err-for="' + input.id + '"]');
-    field.setAttribute("data-invalid", msg ? "true" : "false");
-    input.setAttribute("aria-invalid", msg ? "true" : "false");
-    if (slot) slot.textContent = msg || "";
-  };
-
-  const validate = () => {
-    let firstBad = null;
-    form.querySelectorAll("[required]").forEach((input) => {
-      const value = input.value.trim();
-      let msg = "";
-      if (!value) {
-        msg = "This one is required.";
-      } else if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
-        msg = "That does not look like an email address.";
-      }
-      setErr(input, msg);
-      if (msg && !firstBad) firstBad = input;
-    });
-    return firstBad;
-  };
-
-  form.addEventListener("input", (e) => {
-    const t = e.target;
-    if (t.matches("[required]") && t.closest(".field")?.getAttribute("data-invalid") === "true") {
-      validate();
-    }
-  });
-
-  const say = (message, tone) => {
-    status.textContent = message;
-    status.setAttribute("data-tone", tone);
-    status.hidden = false;
-  };
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    status.hidden = true;
-
-    const firstBad = validate();
-    if (firstBad) {
-      firstBad.focus();
-      say("Have another look at the highlighted fields.", "bad");
-      return;
-    }
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    const button = form.querySelector('button[type="submit"]');
-
-    // No endpoint configured → hand off to the visitor's mail client.
-    if (!CONFIG.formEndpoint) {
-      if (!CONFIG.contactEmail) {
-        say("This form is not connected yet — please reach us on Discord in the meantime.", "bad");
-        return;
-      }
-      const body = Object.entries(data)
-        .filter(([, v]) => v)
-        .map(([k, v]) => k + ": " + v)
-        .join("\n");
-      location.href =
-        "mailto:" + CONFIG.contactEmail +
-        "?subject=" + encodeURIComponent("Network Effect application — " + data.name) +
-        "&body=" + encodeURIComponent(body);
-      say("Opening your email app to send the application…", "ok");
-      return;
-    }
-
-    button.disabled = true;
-    const label = button.textContent;
-    button.textContent = "Sending…";
-
-    try {
-      const res = await fetch(CONFIG.formEndpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(data)
-      });
-      if (!res.ok) throw new Error("Request failed: " + res.status);
-      form.reset();
-      say("Thank you — your application is in. We will be in touch soon.", "ok");
-    } catch (err) {
-      say("Something went wrong sending that. Please try again, or reach us on Discord.", "bad");
-    } finally {
-      button.disabled = false;
-      button.textContent = label;
-    }
-  });
-})();
 </script>
 </body>
 </html>
