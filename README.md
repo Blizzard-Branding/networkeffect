@@ -54,7 +54,7 @@ comment in `index.html` at the spot it applies to.
 | What | Where | Notes |
 | --- | --- | --- |
 | Meeting time | Throughout | Set to **Wednesdays, 11:45am – 1:30pm** per the charter. The flyer said 12 – 1:30pm with people arriving 15 minutes early; confirm the Eventbrite listing agrees. |
-| Social share URL and image | `<meta property="og:*">` in `<head>` | Needs your real domain and a 1200×630 image. |
+| Social share URL and image | `<meta property="og:*">` in `<head>` | Needs your real domain. `Logo.png` stands in as the image, but it is square, so previews will crop or letterbox it. A 1200×630 version would look better. |
 | Professions list | "Who it's for" section | Swap the placeholder tags for the trades actually represented in the room. |
 | Cost | FAQ | Points at the Eventbrite listing. Add membership dues if they differ from the meeting ticket. |
 
@@ -120,6 +120,30 @@ board. Change them in one place and the whole page follows.
 
 Values were sampled from the color board image, so nudge any that do not match
 your source file exactly.
+
+## Logo
+
+`Logo.png` (423×426, RGBA with transparency) is used in four places:
+
+| Where | Rendered size |
+| --- | --- |
+| Nav wordmark | 30px, 26px below 420px wide |
+| Hero, above the wordmark | 64px to 92px, fluid |
+| Footer | 24px |
+| Favicon and apple-touch-icon | browser decides |
+
+The transparent background means it sits correctly on both the dark page and
+the light sections. All three `<img>` tags carry `width` and `height`
+attributes so the browser reserves space and the page does not shift as it
+loads, and `alt=""` because the adjacent text already says "Network Effect";
+giving them alt text would make screen readers announce the name twice.
+
+Two things worth doing later:
+
+- It is a 44KB PNG displayed at 92px at most. A smaller export, or an SVG if
+  you have the vector, would cut that considerably.
+- The filename is capitalised. Most static hosts are case-sensitive, so keep
+  it as `Logo.png` or rename it in both the file and the four references.
 
 ## Typography
 
