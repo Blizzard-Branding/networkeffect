@@ -71,9 +71,19 @@ want social proof on there, add it once you have real quotes to use.
 - The four "What we'll do together" commitments
 - Meeting time: Wednesdays, 11:45am – 1:30pm, as a standing weekly commitment
 - The attendance philosophy, including the deliberate departure from BNI's
-  rules: no substitute-representative requirement, no annual cap on misses
-- The Convener's standing menu of activities, in place of a fixed weekly format
+  rules: no substitute-representative requirement, no annual cap on misses.
+  This now lives in the FAQ ("What happens if I miss a meeting?") rather than
+  a section of its own.
+- The Convener's standing menu of activities, in place of a fixed weekly
+  format. Also in the FAQ ("What actually happens in a meeting?").
 - The DEIB+ "bridge, not a mirror" statement, in full
+
+**Supplied directly:**
+
+- The whole "Preparing for your first meeting" section: bring business cards,
+  prepare a 30-second pitch covering who you are, what you do, and who makes a
+  great referral for you; a first impression rather than a sales pitch. The
+  numbered card beside it just restates the three pitch points, adding nothing.
 
 **From the flyer:**
 
@@ -102,8 +112,8 @@ board. Change them in one place and the whole page follows.
 | `--navy-700` / `--navy-500` | `#1B2338` / `#3B4759` | Hero gradient |
 | `--orange-300` / `--orange-600` | `#EFBE62` / `#DD6A13` | Primary buttons, mission card, accents |
 | `--teal-500` / `--teal-600` / `--teal-900` | `#178C8C` / `#11787A` / `#0A3A54` | Accents, meeting details card |
-| `--tan-300` / `--tan-600` / `--tan-800` | `#C09C64` / `#6B5828` / `#4C3F1C` | Icon accents, "On showing up" panel |
-| `--peri-200` / `--peri-500` / `--peri-600` | `#BFCDE1` / `#9AA2C4` / `#6B709C` | Closing CTA, "On the meeting itself" panel, muted text |
+| `--tan-300` / `--tan-600` / `--tan-800` | `#C09C64` / `#6B5828` / `#4C3F1C` | Icon accents, "Your 30 seconds" card |
+| `--peri-200` / `--peri-500` / `--peri-600` | `#BFCDE1` / `#9AA2C4` / `#6B709C` | Closing CTA card, muted text |
 | `--cream-200` / `--peach-400` | `#EFE8DC` / `#E9AF87` | Warm neutrals |
 | `--green-400` / `--green-700` | `#9BE617` / `#17980E` | Growth accents, success states |
 | `--white-50` / `--white-200` | `#FCFCF9` / `#EDEBDE` | Body text, light sections |

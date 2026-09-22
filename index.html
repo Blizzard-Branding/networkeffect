@@ -303,24 +303,39 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
   padding:9px 18px;font-size:.92rem;color:#C7D0DE;background:rgba(191,205,225,.05);
 }
 
-/* ---------- panels (commitment / format) ---------- */
-.duo{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.panel{
+/* ---------- preparing ---------- */
+.prep-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.72fr);gap:clamp(32px,6vw,72px);align-items:start}
+@media (max-width:900px){.prep-inner{grid-template-columns:1fr}}
+.prep-body{margin:22px 0 0;max-width:56ch;color:var(--ink-muted);font-size:clamp(1rem,2vw,1.08rem);line-height:1.66}
+
+.prep-card{
+  background:linear-gradient(165deg,var(--tan-600),var(--tan-800));
+  color:#F6F1E6;
   border-radius:var(--radius-md);
   padding:clamp(28px,4vw,40px);
-  display:flex;flex-direction:column;
 }
-.panel h3{font-size:clamp(1.25rem,2.6vw,1.55rem);font-weight:500;margin-bottom:16px}
-.panel p{margin:0 0 16px;font-size:1rem;line-height:1.62}
-.panel p:last-of-type{margin-bottom:0}
-.panel-tag{
-  margin-top:auto;padding-top:22px;
-  font-family:var(--font-display);font-size:.92rem;letter-spacing:.02em;
-  border-top:1px solid currentColor;opacity:.72;
+.prep-kicker{
+  margin:0 0 22px;font-family:var(--font-display);
+  font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
+  opacity:.85;
 }
-.panel-tan{background:linear-gradient(165deg,var(--tan-600),var(--tan-800));color:#F6F1E6}
-.panel-tan .panel-tag{opacity:.85}
-.panel-peri{background:linear-gradient(165deg,var(--peri-200),var(--peri-500));color:var(--ink-dark)}
+.prep-list{counter-reset:prep;list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.prep-list li{
+  counter-increment:prep;position:relative;padding-left:40px;
+  font-size:clamp(1.02rem,2vw,1.12rem);line-height:1.4;
+}
+.prep-list li::before{
+  content:counter(prep);position:absolute;left:0;top:-1px;
+  width:26px;height:26px;border-radius:50%;
+  display:grid;place-items:center;
+  background:rgba(246,241,230,.16);
+  font-family:var(--font-display);font-size:.82rem;
+}
+.prep-foot{
+  margin:26px 0 0;padding-top:20px;
+  border-top:1px solid rgba(246,241,230,.28);
+  font-size:.95rem;opacity:.9;
+}
 
 /* ---------- belonging ---------- */
 .belong{
@@ -419,7 +434,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     <nav class="nav-links" aria-label="Primary">
       <a href="#about">About</a>
       <a href="#how">How it works</a>
-      <a href="#commitment">How we run it</a>
+      <a href="#prepare">First meeting</a>
       <a href="#meetings">Meetings</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -592,46 +607,34 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     </div>
   </section>
 
-  <!-- ================= COMMITMENT + FORMAT ================= -->
-  <section class="section" id="commitment">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <p class="eyebrow">How we run it</p>
-        <h2>A standing commitment, not a set of penalties.</h2>
+  <!-- ================= PREPARING ================= -->
+  <section class="section" id="prepare">
+    <div class="wrap prep-inner">
+      <div class="reveal">
+        <p class="eyebrow">Before you come</p>
+        <h2>Preparing for your first meeting.</h2>
+        <p class="prep-body">
+          Come ready to introduce yourself and your business. Bring business
+          cards to hand out, and prepare a short pitch, about 30 seconds, that
+          covers who you are, what you do, and who makes a great referral for
+          you.
+        </p>
+        <p class="prep-body">
+          Think of it as a first impression, not a sales pitch. The goal is to
+          give the group enough to remember you and start thinking of people to
+          introduce you to.
+        </p>
       </div>
 
-      <div class="grid duo">
-        <article class="panel panel-tan reveal">
-          <h3>On showing up</h3>
-          <p>
-            We ask members to treat Wednesday as a standing weekly commitment.
-            Showing up consistently is part of what makes the trust and the
-            referrals here real.
-          </p>
-          <p>
-            We have also deliberately not imported BNI's stricter attendance
-            rules. There is no substitute-representative requirement, and no cap
-            on how many meetings you can miss in a year. We trust each other to
-            say when we cannot make it, and to show up as consistently as our
-            businesses allow.
-          </p>
-          <p class="panel-tag">Positive reinforcement over policing attendance.</p>
-        </article>
-
-        <article class="panel panel-peri reveal">
-          <h3>On the meeting itself</h3>
-          <p>
-            There is no fixed weekly format. The Convener draws from a standing
-            menu of activities each week, choosing what fits the group's time,
-            energy, and the news of the moment.
-          </p>
-          <p>
-            That keeps meetings responsive instead of rigid, the same instinct
-            behind how we handle attendance and referrals.
-          </p>
-          <p class="panel-tag">Responsive, not rigid.</p>
-        </article>
-      </div>
+      <aside class="prep-card reveal">
+        <p class="prep-kicker">Your 30 seconds</p>
+        <ol class="prep-list">
+          <li>Who you are</li>
+          <li>What you do</li>
+          <li>Who makes a great referral for you</li>
+        </ol>
+        <p class="prep-foot">Bring business cards to hand out.</p>
+      </aside>
     </div>
   </section>
 
@@ -842,7 +845,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     <p style="margin:0">© <span id="year">2026</span> Network Effect · Sacramento, CA</p>
     <nav class="footer-links" aria-label="Footer">
       <a href="#about">About</a>
-      <a href="#commitment">How we run it</a>
+      <a href="#prepare">First meeting</a>
       <a href="#meetings">Meetings</a>
       <a href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register</a>
       <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">Discord</a>
