@@ -26,6 +26,10 @@ closer to how it will behave in production.
 
 ## Deploy
 
+The live site is **https://networkeffectsac.com**. The canonical link and the
+Open Graph tags are absolute URLs pointing there, so if the site ever moves,
+update `og:url`, `og:image`, and `<link rel="canonical">` in `<head>` to match.
+
 Any static host will do: Netlify, Vercel, Cloudflare Pages, GitHub Pages, or
 plain S3. Publish the repository root; `index.html` is the entry point.
 
@@ -54,7 +58,7 @@ comment in `index.html` at the spot it applies to.
 | What | Where | Notes |
 | --- | --- | --- |
 | Meeting time | Throughout | Set to **Wednesdays, 11:45am – 1:30pm** per the charter. The flyer said 12 – 1:30pm with people arriving 15 minutes early; confirm the Eventbrite listing agrees. |
-| Social share URL and image | `<meta property="og:*">` in `<head>` | Needs your real domain. `Logo.png` stands in as the image, but it is square, so previews will crop or letterbox it. A 1200×630 version would look better. |
+| Share image | `og:image` in `<head>` | `Logo.png` stands in, but it is square, so previews crop or letterbox it. Swap in a 1200×630 image and update `og:image:width` / `og:image:height`, then switch `twitter:card` back to `summary_large_image`. |
 | Professions list | "Who it's for" section | Swap the placeholder tags for the trades actually represented in the room. |
 | Cost | FAQ | Points at the Eventbrite listing. Add membership dues if they differ from the meeting ticket. |
 
