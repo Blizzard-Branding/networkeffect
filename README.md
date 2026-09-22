@@ -1,4 +1,4 @@
-# Network Effect — landing page
+# Network Effect landing page
 
 A single-file static landing page for **Network Effect**, a business
 networking group in Sacramento. Registration runs through Eventbrite.
@@ -8,6 +8,11 @@ networking group in Sacramento. Registration runs through Eventbrite.
 Everything lives in [`index.html`](index.html): markup, styles, and script. No
 build step, no dependencies. Open it in a browser, or drop it on any static
 host.
+
+## House style
+
+No em dashes anywhere in the copy. Use a comma, a colon, or a full stop
+instead. En dashes stay in numeric ranges (`11:45am – 1:30pm`).
 
 ## Run it locally
 
@@ -21,7 +26,7 @@ closer to how it will behave in production.
 
 ## Deploy
 
-Any static host will do — Netlify, Vercel, Cloudflare Pages, GitHub Pages, or
+Any static host will do: Netlify, Vercel, Cloudflare Pages, GitHub Pages, or
 plain S3. Publish the repository root; `index.html` is the entry point.
 
 ## Registration
@@ -34,7 +39,7 @@ https://www.eventbrite.com/e/network-effect-tickets-2002092173586
 ```
 
 That means no endpoint to configure, no spam filtering to worry about, and no
-attendee data held here — Eventbrite handles confirmations and reminders. If
+attendee data held here. Eventbrite handles confirmations and reminders. If
 you ever move to a different event, search `index.html` for `eventbrite.com`;
 the URL appears in four places (hero, registration card, closing CTA, footer).
 
@@ -60,13 +65,13 @@ want social proof on there, add it once you have real quotes to use.
 
 ## Where the copy came from
 
-**From the charter** (authoritative — edit the charter first, then here):
+**From the charter** (authoritative: edit the charter first, then here):
 
 - Mission statement, in full
 - The four "What we'll do together" commitments
 - Meeting time: Wednesdays, 11:45am – 1:30pm, as a standing weekly commitment
 - The attendance philosophy, including the deliberate departure from BNI's
-  rules — no substitute-representative requirement, no annual cap on misses
+  rules: no substitute-representative requirement, no annual cap on misses
 - The Convener's standing menu of activities, in place of a fixed weekly format
 - The DEIB+ "bridge, not a mirror" statement, in full
 
@@ -77,7 +82,7 @@ want social proof on there, add it once you have real quotes to use.
 - **Where:** Sparkle Professional Cleaning, 5580 Power Inn Rd, Sacramento
 - Discord: `discord.gg/FxANYmJ5nq`
 
-**Draft copy written to fit the above** — read it as a starting point and change
+**Draft copy written to fit the above.** Read it as a starting point and change
 anything that misrepresents the group:
 
 - The "Referrals are a by-product of trust, not a quota" heading and lede
@@ -108,7 +113,7 @@ your source file exactly.
 
 ## Typography
 
-- **Jost** for display and the wordmark — a geometric sans close to the flyer's
+- **Jost** for display and the wordmark, a geometric sans close to the flyer's
   lettering.
 - **Inter** for body copy.
 
