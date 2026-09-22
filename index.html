@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Network Effect — Connect. Contribute. Grow.</title>
+<meta name="description" content="A business networking group done differently. A trusted circle of independent professionals in Sacramento who refer each other with confidence. Wednesdays, 12–1:30pm." />
+
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Network Effect — Connect. Contribute. Grow." />
+<meta property="og:description" content="A trusted circle of independent professionals in Sacramento who refer each other with confidence. We meet Wednesdays, 12–1:30pm." />
+<!-- TODO: replace with your deployed URL + a 1200x630 share image committed to /assets -->
+<meta property="og:url" content="https://networkeffect.example.com/" />
+<meta property="og:image" content="https://networkeffect.example.com/assets/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E1324'/%3E%3Cg stroke='%23DD6A13' stroke-width='1.6'%3E%3Cpath d='M9 10 L23 13 M9 10 L14 23 M23 13 L14 23 M23 13 L24 23 M14 23 L24 23'/%3E%3C/g%3E%3Cg fill='%23EFBE62'%3E%3Ccircle cx='9' cy='10' r='2.6'/%3E%3Ccircle cx='23' cy='13' r='2.6'/%3E%3Ccircle cx='14' cy='23' r='2.6'/%3E%3Ccircle cx='24' cy='23' r='2.2'/%3E%3C/g%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   Network Effect — brand tokens
+   Palette read from the Blizzard Branding "Primary Colors" board.
+   ============================================================ */
+:root{
+  --navy-900:#0E1324;
+  --navy-800:#151C31;
+  --navy-700:#1B2338;
+  --navy-500:#3B4759;
+
+  --orange-300:#EFBE62;
+  --orange-600:#DD6A13;
+
+  --teal-500:#178C8C;
+  --teal-900:#0A3A54;
+
+  --tan-300:#C09C64;
+  --tan-800:#4C3F1C;
+
+  --peri-200:#BFCDE1;
+  --peri-600:#6B709C;
+
+  --cream-200:#EFE8DC;
+  --peach-400:#E9AF87;
+
+  --green-400:#9BE617;
+  --green-700:#17980E;
+
+  --white-50:#FCFCF9;
+  --white-200:#EDEBDE;
+
+  /* semantic */
+  --bg:var(--navy-900);
+  --surface:var(--navy-800);
+  --ink:var(--white-50);
+  --ink-muted:#A9B3C4;
+  --ink-dark:#11162A;
+  --ink-dark-muted:#3F4756;
+  --rule:rgba(191,205,225,.14);
+
+  --radius-lg:28px;
+  --radius-md:18px;
+  --radius-sm:12px;
+
+  --gutter:clamp(16px,5vw,40px);
+  --maxw:1140px;
+
+  --font-display:"Jost","Futura","Century Gothic",system-ui,sans-serif;
+  --font-body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+
+  --shadow-card:0 24px 60px -24px rgba(5,9,20,.75);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:17px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit}
+
+h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing:-.01em;line-height:1.08;margin:0}
+
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:clamp(64px,10vw,120px)}
+
+.eyebrow{
+  font-family:var(--font-display);
+  font-size:.75rem;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--orange-300);
+  margin:0 0 18px;
+}
+.eyebrow.on-light{color:var(--orange-600)}
+
+.lede{font-size:clamp(1.05rem,2.2vw,1.2rem);color:var(--ink-muted);max-width:62ch}
+
+/* ---------- skip link ---------- */
+.skip{
+  position:absolute;left:-9999px;top:0;z-index:100;
+  background:var(--orange-600);color:#fff;padding:12px 18px;border-radius:0 0 var(--radius-sm) 0;
+  font-weight:600;
+}
+.skip:focus{left:0}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+  font-family:var(--font-body);font-size:.97rem;font-weight:600;
+  padding:14px 26px;border-radius:999px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:transform .18s ease,background-color .18s ease,border-color .18s ease,color .18s ease;
+  white-space:nowrap;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(180deg,var(--orange-300),var(--orange-600));color:#2A1603}
+.btn-primary:hover{background:linear-gradient(180deg,#F4C877,#E8761B)}
+.btn-ghost{border-color:rgba(191,205,225,.32);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--peri-200);background:rgba(191,205,225,.09)}
+.btn-dark{background:var(--navy-900);color:var(--white-50)}
+.btn-dark:hover{background:var(--navy-700)}
+.btn-lg{padding:17px 34px;font-size:1.02rem}
+
+:where(a,button,input,select,textarea,summary):focus-visible{
+  outline:3px solid var(--orange-300);outline-offset:3px;border-radius:6px;
+}
+@media (prefers-reduced-motion:reduce){.btn:hover{transform:none}}
+
+/* ---------- nav ---------- */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(14,19,36,.78);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease,background-color .2s ease;
+}
+.nav[data-stuck="true"]{border-bottom-color:var(--rule)}
+.nav-inner{display:flex;align-items:center;gap:20px;height:72px}
+.brand{
+  font-family:var(--font-display);font-weight:400;font-size:1.02rem;
+  letter-spacing:.16em;text-transform:uppercase;text-decoration:none;
+  display:flex;align-items:center;gap:10px;margin-right:auto;
+}
+.brand .dot{width:9px;height:9px;border-radius:50%;background:var(--orange-600);flex:none}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{
+  text-decoration:none;font-size:.92rem;color:var(--ink-muted);font-weight:500;
+  transition:color .18s ease;
+}
+.nav-links a:hover{color:var(--ink)}
+@media (max-width:860px){.nav-links{display:none}}
+@media (max-width:420px){
+  .nav-inner{gap:12px;height:64px}
+  .brand{font-size:.8rem;letter-spacing:.12em;white-space:nowrap}
+  .nav-inner .btn{padding:11px 18px;font-size:.88rem}
+  .cta-long{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:clamp(56px,9vw,96px) clamp(48px,7vw,80px)}
+.hero-card{
+  position:relative;overflow:hidden;
+  border-radius:var(--radius-lg);
+  background:linear-gradient(170deg,var(--navy-500) 0%,var(--navy-700) 46%,var(--navy-900) 100%);
+  box-shadow:var(--shadow-card);
+  padding:clamp(40px,7vw,86px) clamp(26px,5vw,72px);
+  isolation:isolate;
+}
+#net{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.55}
+.hero-card > *{position:relative;z-index:1}
+
+.wordmark{
+  font-family:var(--font-display);font-weight:300;
+  font-size:clamp(2.5rem,9.2vw,6.1rem);
+  letter-spacing:-.005em;line-height:1;
+  margin:0;
+}
+.tagline{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(.72rem,2.3vw,1.02rem);
+  letter-spacing:.38em;text-transform:uppercase;
+  color:var(--peri-200);
+  margin:20px 0 0;
+}
+.hero-sub{
+  margin:30px 0 0;max-width:54ch;
+  font-size:clamp(1.02rem,2.1vw,1.19rem);color:#C7D0DE;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;
+  padding-top:26px;border-top:1px solid rgba(191,205,225,.16);
+  font-size:.92rem;color:var(--ink-muted);
+}
+.hero-meta strong{color:var(--white-50);font-weight:600}
+
+/* ---------- mission card (orange) ---------- */
+.mission{
+  border-radius:var(--radius-lg);
+  background:linear-gradient(175deg,var(--orange-300) 0%,var(--orange-600) 100%);
+  color:var(--ink-dark);
+  padding:clamp(34px,6vw,68px) clamp(26px,5vw,64px);
+  box-shadow:var(--shadow-card);
+}
+.mission h2{font-size:clamp(1.7rem,4.4vw,2.85rem);max-width:20ch;font-weight:500}
+.mission p{
+  margin:24px 0 0;max-width:60ch;
+  font-size:clamp(1.02rem,2.1vw,1.18rem);line-height:1.6;
+  color:#241203;
+}
+
+/* ---------- section headers ---------- */
+.sec-head{max-width:64ch;margin-bottom:clamp(32px,5vw,54px)}
+.sec-head h2{font-size:clamp(1.85rem,4.6vw,3rem)}
+.sec-head p{margin:18px 0 0}
+
+/* ---------- pillars ---------- */
+.grid{display:grid;gap:18px}
+.pillars{grid-template-columns:repeat(auto-fit,minmax(248px,1fr))}
+.pillar{
+  border-radius:var(--radius-md);
+  background:var(--surface);
+  border:1px solid var(--rule);
+  padding:30px 28px 32px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:border-color .2s ease,transform .2s ease;
+}
+.pillar:hover{border-color:rgba(191,205,225,.3);transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){.pillar:hover{transform:none}}
+.pillar .ico{
+  width:42px;height:42px;border-radius:12px;flex:none;
+  display:grid;place-items:center;margin-bottom:6px;
+}
+.pillar h3{font-size:1.24rem;font-weight:500}
+.pillar p{margin:0;color:var(--ink-muted);font-size:.97rem}
+
+/* ---------- steps ---------- */
+.steps{counter-reset:step;grid-template-columns:repeat(auto-fit,minmax(215px,1fr))}
+.step{padding-top:26px;border-top:2px solid var(--navy-500);position:relative}
+.step::before{
+  counter-increment:step;content:counter(step,decimal-leading-zero);
+  font-family:var(--font-display);font-size:.82rem;letter-spacing:.2em;
+  color:var(--orange-300);display:block;margin-bottom:14px;
+}
+.step h3{font-size:1.14rem;font-weight:500;margin-bottom:8px}
+.step p{margin:0;color:var(--ink-muted);font-size:.95rem}
+
+/* ---------- meeting card (teal) ---------- */
+.meet{
+  border-radius:var(--radius-lg);
+  background:linear-gradient(170deg,var(--teal-500) 0%,var(--teal-900) 100%);
+  padding:clamp(34px,6vw,64px) clamp(26px,5vw,60px);
+  box-shadow:var(--shadow-card);
+}
+.meet h2{font-size:clamp(1.7rem,4.2vw,2.6rem);margin-bottom:34px;font-weight:500}
+.meet-rows{display:grid;gap:22px;max-width:62ch}
+.meet-row{display:grid;grid-template-columns:104px 1fr;gap:18px;align-items:start}
+.meet-row dt{font-weight:700;font-size:1.02rem}
+.meet-row dd{margin:0;font-size:clamp(1.02rem,2.1vw,1.18rem);line-height:1.5}
+.meet-row dd small{display:block;font-size:.9rem;opacity:.82;margin-top:4px}
+.meet-row a{color:var(--white-50)}
+@media (max-width:560px){.meet-row{grid-template-columns:1fr;gap:4px}}
+
+.discord-card{
+  margin-top:36px;background:var(--white-200);color:var(--ink-dark);
+  border-radius:var(--radius-md);padding:24px 28px;
+  display:flex;flex-wrap:wrap;align-items:center;gap:18px 26px;
+  justify-content:space-between;
+}
+.discord-card .label{
+  font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-dark-muted);margin:0 0 4px;
+}
+.discord-card .url{font-family:var(--font-display);font-size:1.06rem;letter-spacing:.02em;margin:0;word-break:break-all}
+
+/* ---------- who ---------- */
+.tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.tag{
+  border:1px solid var(--rule);border-radius:999px;
+  padding:9px 18px;font-size:.92rem;color:#C7D0DE;background:rgba(191,205,225,.05);
+}
+
+/* ---------- apply ---------- */
+.apply{background:var(--white-200);color:var(--ink-dark)}
+.apply .sec-head p{color:var(--ink-dark-muted)}
+.apply-inner{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,72px);align-items:start}
+@media (max-width:900px){.apply-inner{grid-template-columns:1fr}}
+.apply h2{font-size:clamp(1.85rem,4.6vw,3rem)}
+.apply-note{
+  margin-top:26px;padding:20px 22px;border-radius:var(--radius-sm);
+  background:rgba(23,140,140,.1);border-left:3px solid var(--teal-500);
+  font-size:.95rem;color:#2B3440;
+}
+
+form{display:grid;gap:18px}
+.field{display:grid;gap:7px}
+.field label{font-size:.88rem;font-weight:600;letter-spacing:.01em}
+.field .hint{font-size:.82rem;color:var(--ink-dark-muted);font-weight:400}
+.field input,.field select,.field textarea{
+  font:inherit;font-size:1rem;color:var(--ink-dark);
+  background:var(--white-50);
+  border:1px solid rgba(17,22,42,.18);
+  border-radius:var(--radius-sm);
+  padding:13px 15px;width:100%;
+  transition:border-color .18s ease,box-shadow .18s ease;
+}
+.field textarea{min-height:118px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--teal-500);box-shadow:0 0 0 3px rgba(23,140,140,.18);outline:none;
+}
+.field[data-invalid="true"] input,.field[data-invalid="true"] select,.field[data-invalid="true"] textarea{
+  border-color:#B3320F;box-shadow:0 0 0 3px rgba(179,50,15,.14);
+}
+.err{font-size:.82rem;color:#9C2C0D;font-weight:600;min-height:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:560px){.two{grid-template-columns:1fr}}
+.form-status{
+  margin:0;padding:14px 16px;border-radius:var(--radius-sm);font-size:.95rem;font-weight:500;
+}
+.form-status[data-tone="ok"]{background:rgba(23,152,14,.13);color:#12610C;border:1px solid rgba(23,152,14,.3)}
+.form-status[data-tone="bad"]{background:rgba(179,50,15,.1);color:#8C280B;border:1px solid rgba(179,50,15,.28)}
+.form-status[hidden]{display:none}
+
+/* ---------- faq ---------- */
+.faq-list{display:grid;gap:0;border-top:1px solid var(--rule)}
+details{border-bottom:1px solid var(--rule)}
+summary{
+  cursor:pointer;list-style:none;padding:22px 44px 22px 0;position:relative;
+  font-family:var(--font-display);font-size:clamp(1.04rem,2.4vw,1.24rem);font-weight:400;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--orange-300);border-bottom:2px solid var(--orange-300);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+details[open] summary::after{transform:translateY(-25%) rotate(-135deg)}
+details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem}
+
+/* ---------- final cta ---------- */
+.final{
+  border-radius:var(--radius-lg);
+  background:linear-gradient(170deg,var(--peri-200) 0%,var(--peri-600) 100%);
+  color:var(--ink-dark);
+  padding:clamp(40px,7vw,76px) clamp(26px,5vw,64px);
+  text-align:center;box-shadow:var(--shadow-card);
+}
+.final h2{font-size:clamp(1.9rem,5vw,3.1rem);margin-bottom:16px}
+.final p{margin:0 auto;max-width:48ch;color:#1E2435;font-size:1.05rem}
+.final .hero-actions{justify-content:center}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid var(--rule);padding-block:44px;color:var(--ink-muted);font-size:.9rem}
+.footer-inner{display:flex;flex-wrap:wrap;gap:16px 32px;align-items:center;justify-content:space-between}
+.footer a{text-decoration:none;color:var(--ink-muted)}
+.footer a:hover{color:var(--ink)}
+.footer-links{display:flex;flex-wrap:wrap;gap:22px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#apply">Skip to the application</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Network Effect</a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#how">How it works</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary" href="#apply">Apply<span class="cta-long">&nbsp;to join</span></a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-card">
+        <canvas id="net" aria-hidden="true"></canvas>
+        <h1 class="wordmark">Network Effect</h1>
+        <p class="tagline">Connect. Contribute. Grow.</p>
+        <p class="hero-sub">
+          A trusted circle of independent professionals in Sacramento who refer
+          each other with confidence — and who show up every week to earn it.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#apply">Apply to join</a>
+          <a class="btn btn-ghost btn-lg" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">
+            Join the Discord
+          </a>
+        </div>
+        <p class="hero-meta">
+          <span><strong>Wednesdays</strong> · 12–1:30pm</span>
+          <span><strong>Sacramento</strong> · 5580 Power Inn Rd</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MISSION ================= -->
+  <section class="section" id="about" style="padding-top:clamp(8px,2vw,24px)">
+    <div class="wrap">
+      <div class="mission reveal">
+        <h2>A business networking group done differently.</h2>
+        <p>
+          We exist to build a trusted circle of independent professionals who
+          refer each other with confidence. We do this through intentional
+          relationships, honest support, and a shared commitment to helping each
+          other grow and prosper.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PILLARS ================= -->
+  <section class="section" style="padding-top:clamp(16px,3vw,40px)">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">What "differently" means</p>
+        <h2>Referrals are a by-product of trust, not a quota.</h2>
+        <p class="lede">
+          Plenty of groups will hand you a lead sheet. We would rather you knew
+          the person well enough to put your own name behind theirs.
+        </p>
+      </div>
+
+      <div class="grid pillars">
+        <article class="pillar reveal">
+          <span class="ico" style="background:rgba(221,106,19,.16)" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EFBE62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <h3>Referrals you can stand behind</h3>
+          <p>
+            When a member sends you a name, they have already vouched for you.
+            That only works if we know each other's work properly.
+          </p>
+        </article>
+
+        <article class="pillar reveal">
+          <span class="ico" style="background:rgba(23,140,140,.18)" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#178C8C" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <h3>Relationships before transactions</h3>
+          <p>
+            Intentional relationships are the whole method. The business follows
+            from them, rather than the other way round.
+          </p>
+        </article>
+
+        <article class="pillar reveal">
+          <span class="ico" style="background:rgba(192,156,100,.2)" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C09C64" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </span>
+          <h3>Honest support</h3>
+          <p>
+            Running something on your own is hard. This is a room where you can
+            say so, and get a straight answer rather than a pitch.
+          </p>
+        </article>
+
+        <article class="pillar reveal">
+          <span class="ico" style="background:rgba(155,230,23,.16)" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9BE617" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+          </span>
+          <h3>Grow and prosper — together</h3>
+          <p>
+            Every member who gets stronger makes the circle worth more to
+            everyone else in it. That is the network effect, literally.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW ================= -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2>Four steps, no mystery.</h2>
+      </div>
+
+      <div class="grid steps">
+        <article class="step reveal">
+          <h3>Come as a guest</h3>
+          <p>Tell us you are coming, then sit in on a Wednesday meeting and see whether the room suits you.</p>
+        </article>
+        <article class="step reveal">
+          <h3>Meet the members</h3>
+          <p>Get to know what people actually do, and let them get to know what you do. Arrive 15 minutes early — that is when most of it happens.</p>
+        </article>
+        <article class="step reveal">
+          <h3>Apply</h3>
+          <p>Send in the form below. We will talk it through with you and let you know where things stand.</p>
+        </article>
+        <article class="step reveal">
+          <h3>Start contributing</h3>
+          <p>Show up, learn the other members' businesses, and pass on the referrals you would be happy to make yourself.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MEETINGS ================= -->
+  <section class="section" id="meetings" style="padding-top:clamp(16px,3vw,40px)">
+    <div class="wrap">
+      <div class="meet reveal">
+        <h2>Where to find us</h2>
+        <dl class="meet-rows">
+          <div class="meet-row">
+            <dt>When</dt>
+            <dd>
+              Wednesdays, 12 – 1:30pm
+              <small>People arrive 15 minutes early to socialise.</small>
+            </dd>
+          </div>
+          <div class="meet-row">
+            <dt>Where</dt>
+            <dd>
+              Sparkle Professional Cleaning<br />
+              <a href="https://maps.google.com/?q=5580+Power+Inn+Rd,+Sacramento,+CA" target="_blank" rel="noopener">5580 Power Inn Rd, Sacramento</a>
+            </dd>
+          </div>
+        </dl>
+
+        <div class="discord-card">
+          <div>
+            <p class="label">Join our Discord</p>
+            <p class="url">discord.gg/FxANYmJ5nq</p>
+          </div>
+          <a class="btn btn-dark" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">Open invite</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHO ================= -->
+  <section class="section">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Who it's for</p>
+        <h2>Independent professionals who trade on their reputation.</h2>
+        <p class="lede">
+          If your next job tends to come from someone who knows your work, you
+          are the kind of person this group is built around.
+        </p>
+      </div>
+      <!-- TODO: swap these for the trades and professions actually represented in the room. -->
+      <div class="tags reveal">
+        <span class="tag">Trades &amp; home services</span>
+        <span class="tag">Real estate</span>
+        <span class="tag">Insurance</span>
+        <span class="tag">Accounting &amp; bookkeeping</span>
+        <span class="tag">Legal</span>
+        <span class="tag">Marketing &amp; design</span>
+        <span class="tag">Financial services</span>
+        <span class="tag">Health &amp; wellness</span>
+        <span class="tag">Consulting</span>
+        <span class="tag">Photography &amp; video</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= APPLY ================= -->
+  <section class="section apply" id="apply">
+    <div class="wrap apply-inner">
+      <div class="reveal">
+        <p class="eyebrow on-light">Apply to join</p>
+        <h2>Tell us about your business.</h2>
+        <p style="color:var(--ink-dark-muted);margin-top:18px;max-width:46ch">
+          A few questions, honestly answered, is all we need to start the
+          conversation. We read every application.
+        </p>
+        <div class="apply-note">
+          <strong>Prefer to just turn up?</strong> Come to a Wednesday meeting as
+          a guest, or say hello first in
+          <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener" style="color:#0A3A54">our Discord</a>.
+        </div>
+      </div>
+
+      <form id="apply-form" novalidate>
+        <div class="two">
+          <div class="field">
+            <label for="f-name">Full name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required />
+            <p class="err" data-err-for="f-name" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required />
+            <p class="err" data-err-for="f-email" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="two">
+          <div class="field">
+            <label for="f-business">Business name</label>
+            <input id="f-business" name="business" type="text" autocomplete="organization" required />
+            <p class="err" data-err-for="f-business" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone <span class="hint">(optional)</span></label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-trade">What do you do?</label>
+          <input id="f-trade" name="trade" type="text" placeholder="e.g. residential electrician, family law, bookkeeping" required />
+          <p class="err" data-err-for="f-trade" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="f-heard">How did you hear about us? <span class="hint">(optional)</span></label>
+          <select id="f-heard" name="heard">
+            <option value="">Select one…</option>
+            <option>A current member</option>
+            <option>Visited a meeting</option>
+            <option>Discord</option>
+            <option>Social media</option>
+            <option>Search</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="f-why">Why do you want to join?</label>
+          <textarea id="f-why" name="why" required placeholder="What you are hoping to get from the group — and what you would bring to it."></textarea>
+          <p class="err" data-err-for="f-why" aria-live="polite"></p>
+        </div>
+
+        <button class="btn btn-primary btn-lg" type="submit" style="justify-self:start">Send application</button>
+        <p class="form-status" id="form-status" hidden></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2>Before you apply.</h2>
+      </div>
+
+      <div class="faq-list reveal">
+        <details>
+          <summary>When and where do you meet?</summary>
+          <p>
+            Wednesdays from 12 to 1:30pm at Sparkle Professional Cleaning,
+            5580 Power Inn Rd, Sacramento. Most people arrive about 15 minutes
+            early to catch up before the meeting starts.
+          </p>
+        </details>
+        <details>
+          <summary>Can I visit before applying?</summary>
+          <p>
+            Yes — visiting first is the best way to work out whether the group is
+            right for you. Let us know in the Discord that you are coming, or
+            mention it in your application.
+          </p>
+        </details>
+        <details>
+          <summary>What does it cost to join?</summary>
+          <!-- TODO: replace with your real dues / fee structure. -->
+          <p>
+            Get in touch and we will walk you through the current membership
+            terms before you commit to anything.
+          </p>
+        </details>
+        <details>
+          <summary>Do you take more than one person per profession?</summary>
+          <!-- TODO: confirm your policy on overlapping professions and replace this answer. -->
+          <p>
+            Ask us when you apply. We will tell you honestly whether your line of
+            work is already well covered in the room.
+          </p>
+        </details>
+        <details>
+          <summary>What is expected of members?</summary>
+          <p>
+            Turn up regularly, learn what the other members actually do, and pass
+            on referrals you would be comfortable making with your own name
+            attached. That is the whole deal.
+          </p>
+        </details>
+        <details>
+          <summary>Is the Discord open to non-members?</summary>
+          <!-- TODO: confirm whether the Discord is open to guests or members only. -->
+          <p>
+            The invite is on this page, so come and introduce yourself — it is the
+            easiest way to reach us between meetings.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="final reveal">
+        <h2>Connect. Contribute. Grow.</h2>
+        <p>
+          The circle is only as good as the people in it. If that sounds like the
+          room you have been looking for, come and find us on a Wednesday.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-dark btn-lg" href="#apply">Apply to join</a>
+          <a class="btn btn-ghost btn-lg" href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener" style="border-color:rgba(17,22,42,.3);color:var(--ink-dark)">Join the Discord</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p style="margin:0">© <span id="year">2026</span> Network Effect · Sacramento, CA</p>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#about">About</a>
+      <a href="#meetings">Meetings</a>
+      <a href="#apply">Apply</a>
+      <a href="https://discord.gg/FxANYmJ5nq" target="_blank" rel="noopener">Discord</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONFIG — set these before going live. See README.md.
+   ============================================================ */
+const CONFIG = {
+  // A form endpoint that accepts a POST (Formspree, Basin, Netlify Forms,
+  // Getform, a Google Apps Script web app…). Leave blank to fall back to email.
+  formEndpoint: "",
+  // Used as the fallback when formEndpoint is blank: opens the visitor's mail
+  // client with the application pre-filled.
+  contactEmail: ""
+};
+
+/* ---------- footer year ---------- */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* ---------- sticky nav border ---------- */
+const nav = document.getElementById("nav");
+const onScroll = () => nav.setAttribute("data-stuck", String(window.scrollY > 8));
+onScroll();
+addEventListener("scroll", onScroll, { passive: true });
+
+/* ---------- reveal on scroll ---------- */
+const reveals = document.querySelectorAll(".reveal");
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+  reveals.forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + "ms"; io.observe(el); });
+} else {
+  reveals.forEach((el) => el.classList.add("is-in"));
+}
+
+/* ---------- hero network animation ---------- */
+(function network() {
+  const canvas = document.getElementById("net");
+  if (!canvas || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  let w = 0, h = 0, dpr = 1, nodes = [], raf = 0;
+  const LINK = 168;
+
+  function seed() {
+    const count = Math.round(Math.min(64, Math.max(20, (w * h) / 22000)));
+    nodes = Array.from({ length: count }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
+      r: Math.random() * 1.6 + 1.1
+    }));
+  }
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(devicePixelRatio || 1, 2);
+    w = rect.width; h = rect.height;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    seed();
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      a.x += a.vx; a.y += a.vy;
+      if (a.x < 0 || a.x > w) a.vx *= -1;
+      if (a.y < 0 || a.y > h) a.vy *= -1;
+
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.hypot(dx, dy);
+        if (d < LINK) {
+          ctx.strokeStyle = "rgba(191,205,225," + (0.3 * (1 - d / LINK)).toFixed(3) + ")";
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const n of nodes) {
+      ctx.fillStyle = "rgba(239,190,98,.55)";
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    raf = requestAnimationFrame(frame);
+  }
+
+  resize();
+  frame();
+
+  addEventListener("resize", () => {
+    cancelAnimationFrame(raf);
+    resize();
+    frame();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { cancelAnimationFrame(raf); }
+    else { cancelAnimationFrame(raf); frame(); }
+  });
+})();
+
+/* ---------- application form ---------- */
+(function applyForm() {
+  const form = document.getElementById("apply-form");
+  const status = document.getElementById("form-status");
+  if (!form) return;
+
+  const setErr = (input, msg) => {
+    const field = input.closest(".field");
+    const slot = form.querySelector('[data-err-for="' + input.id + '"]');
+    field.setAttribute("data-invalid", msg ? "true" : "false");
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+    if (slot) slot.textContent = msg || "";
+  };
+
+  const validate = () => {
+    let firstBad = null;
+    form.querySelectorAll("[required]").forEach((input) => {
+      const value = input.value.trim();
+      let msg = "";
+      if (!value) {
+        msg = "This one is required.";
+      } else if (input.type === "email" && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value)) {
+        msg = "That does not look like an email address.";
+      }
+      setErr(input, msg);
+      if (msg && !firstBad) firstBad = input;
+    });
+    return firstBad;
+  };
+
+  form.addEventListener("input", (e) => {
+    const t = e.target;
+    if (t.matches("[required]") && t.closest(".field")?.getAttribute("data-invalid") === "true") {
+      validate();
+    }
+  });
+
+  const say = (message, tone) => {
+    status.textContent = message;
+    status.setAttribute("data-tone", tone);
+    status.hidden = false;
+  };
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    status.hidden = true;
+
+    const firstBad = validate();
+    if (firstBad) {
+      firstBad.focus();
+      say("Have another look at the highlighted fields.", "bad");
+      return;
+    }
+
+    const data = Object.fromEntries(new FormData(form).entries());
+    const button = form.querySelector('button[type="submit"]');
+
+    // No endpoint configured → hand off to the visitor's mail client.
+    if (!CONFIG.formEndpoint) {
+      if (!CONFIG.contactEmail) {
+        say("This form is not connected yet — please reach us on Discord in the meantime.", "bad");
+        return;
+      }
+      const body = Object.entries(data)
+        .filter(([, v]) => v)
+        .map(([k, v]) => k + ": " + v)
+        .join("\n");
+      location.href =
+        "mailto:" + CONFIG.contactEmail +
+        "?subject=" + encodeURIComponent("Network Effect application — " + data.name) +
+        "&body=" + encodeURIComponent(body);
+      say("Opening your email app to send the application…", "ok");
+      return;
+    }
+
+    button.disabled = true;
+    const label = button.textContent;
+    button.textContent = "Sending…";
+
+    try {
+      const res = await fetch(CONFIG.formEndpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data)
+      });
+      if (!res.ok) throw new Error("Request failed: " + res.status);
+      form.reset();
+      say("Thank you — your application is in. We will be in touch soon.", "ok");
+    } catch (err) {
+      say("Something went wrong sending that. Please try again, or reach us on Discord.", "bad");
+    } finally {
+      button.disabled = false;
+      button.textContent = label;
+    }
+  });
+})();
+</script>
+</body>
+</html>
