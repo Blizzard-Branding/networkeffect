@@ -26,9 +26,10 @@ closer to how it will behave in production.
 
 ## Deploy
 
-The live site is **https://networkeffectsac.com**. The canonical link and the
-Open Graph tags are absolute URLs pointing there, so if the site ever moves,
-update `og:url`, `og:image`, and `<link rel="canonical">` in `<head>` to match.
+The live site is **https://networkeffectsac.com**, served from Vercel and
+deployed from the `main` branch. The canonical link and the Open Graph tags are
+absolute URLs pointing there, so if the site ever moves, update `og:url`,
+`og:image`, and `<link rel="canonical">` in `<head>` to match.
 
 Any static host will do: Netlify, Vercel, Cloudflare Pages, GitHub Pages, or
 plain S3. Publish the repository root; `index.html` is the entry point.
