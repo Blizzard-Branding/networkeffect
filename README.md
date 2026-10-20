@@ -46,7 +46,12 @@ https://www.eventbrite.com/e/network-effect-tickets-2002092173586
 That means no endpoint to configure, no spam filtering to worry about, and no
 attendee data held here. Eventbrite handles confirmations and reminders. If
 you ever move to a different event, search `index.html` for `eventbrite.com`;
-the URL appears in four places (hero, registration card, closing CTA, footer).
+the URL appears in six places (hero, meeting card, registration card, closing
+CTA, footer, and the "how it works" steps).
+
+Eventbrite is the only outbound link on the page. There is deliberately no
+other contact route, so anyone with a question has to register or turn up.
+Worth adding an email address if that proves too narrow.
 
 Prefer an in-page checkout? Eventbrite's embedded widget is a drop-in
 replacement for the registration card.
@@ -59,7 +64,8 @@ comment in `index.html` at the spot it applies to.
 | What | Where | Notes |
 | --- | --- | --- |
 | Meeting time | Throughout | Set to **Wednesdays, 11:45am – 1:30pm** per the charter. The flyer said 12 – 1:30pm with people arriving 15 minutes early; confirm the Eventbrite listing agrees. |
-| Share image | `og:image` in `<head>` | `Logo.png` stands in, but it is square, so previews crop or letterbox it. Swap in a 1200×630 image and update `og:image:width` / `og:image:height`, then switch `twitter:card` back to `summary_large_image`. |
+| Share image | `og:image` in `<head>` | Removed with the logo, so link previews currently show no image. Add a 1200×630 image plus `og:image:width` / `og:image:height`, and switch `twitter:card` to `summary_large_image`. |
+| Logo | Nav, hero, footer, favicon | None chosen. Placeholders in place; see **Logo** below. |
 | Professions list | "Who it's for" section | Swap the placeholder tags for the trades actually represented in the room. |
 | Cost | FAQ | Points at the Eventbrite listing. Add membership dues if they differ from the meeting ticket. |
 
@@ -95,7 +101,6 @@ want social proof on there, add it once you have real quotes to use.
 - Tagline: *Connect. Contribute. Grow.*
 - Positioning line: *A business networking group done differently.*
 - **Where:** Sparkle Professional Cleaning, 5580 Power Inn Rd, Sacramento
-- Discord: `discord.gg/FxANYmJ5nq`
 
 **Draft copy written to fit the above.** Read it as a starting point and change
 anything that misrepresents the group:
@@ -128,27 +133,15 @@ your source file exactly.
 
 ## Logo
 
-`Logo.png` (423×426, RGBA with transparency) is used in four places:
+**No logo is on the page.** `Logo.png` is still committed at the repo root but
+nothing references it, kept so it is there if that sunflower mark is chosen.
 
-| Where | Rendered size |
-| --- | --- |
-| Nav wordmark | 30px, 26px below 420px wide |
-| Hero, above the wordmark | 64px to 92px, fluid |
-| Footer | 24px |
-| Favicon and apple-touch-icon | browser decides |
+The favicon is a neutral inline SVG placeholder (dots and lines, no brand
+mark), defined as a data URI in `<head>`. The nav wordmark uses a small orange
+dot. Both are placeholders for whatever mark gets chosen.
 
-The transparent background means it sits correctly on both the dark page and
-the light sections. All three `<img>` tags carry `width` and `height`
-attributes so the browser reserves space and the page does not shift as it
-loads, and `alt=""` because the adjacent text already says "Network Effect";
-giving them alt text would make screen readers announce the name twice.
-
-Two things worth doing later:
-
-- It is a 44KB PNG displayed at 92px at most. A smaller export, or an SVG if
-  you have the vector, would cut that considerably.
-- The filename is capitalised. Most static hosts are case-sensitive, so keep
-  it as `Logo.png` or rename it in both the file and the four references.
+When there is a logo, it goes in four places: the nav beside the wordmark, the
+hero above it, the footer, and the favicon plus apple-touch-icon.
 
 ## Typography
 
