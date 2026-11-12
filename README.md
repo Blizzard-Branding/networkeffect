@@ -98,7 +98,8 @@ want social proof on there, add it once you have real quotes to use.
 
 - Tagline: *Connect. Contribute. Grow.*
 - Positioning line: *A business networking group done differently.*
-- **Where:** Sparkle Professional Cleaning, 5580 Power Inn Rd, Sacramento
+- **Where:** Sacramento, CA. The venue name and street address were removed
+  because the group may change locations.
 
 **Draft copy written to fit the above.** Read it as a starting point and change
 anything that misrepresents the group:
