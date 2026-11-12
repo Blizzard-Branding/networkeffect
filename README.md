@@ -113,6 +113,21 @@ anything that misrepresents the group:
 - The "Who it's for" section
 - The FAQ answers
 
+## DEIB marks
+
+The belonging section ends with three marks: the intersex-inclusive Progress
+Pride flag, an equality symbol, and a Black Lives Matter block. All three are
+drawn inline, as SVG and styled text, so there are no image files and nothing
+to upload. Each carries `role="img"` and an `aria-label`, so screen readers
+announce the name rather than skipping them.
+
+The flag uses the official Progress Pride colors. The equality mark and the
+Black Lives Matter block closely resemble the marks used by the Human Rights
+Campaign and the Black Lives Matter movement. Using an organization's mark can
+read as a claim of affiliation or endorsement, so if the group has no formal
+tie to either, consider recoloring the equality symbol to the brand palette and
+replacing the Black Lives Matter block with a plain sentence of support.
+
 ## Brand colors
 
 The CSS custom properties on `:root` are named after the "Primary Colors"

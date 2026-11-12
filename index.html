@@ -365,6 +365,38 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
 .belong p:not(.eyebrow){margin:0 0 18px;max-width:70ch;color:#C7D0DE;font-size:clamp(1rem,2vw,1.08rem)}
 .belong p:last-child{margin-bottom:0}
 
+/* ---------- DEIB marks ---------- */
+.dei-marks{
+  display:flex;flex-wrap:wrap;align-items:center;gap:16px;
+  margin-top:clamp(28px,4vw,38px);
+  padding-top:clamp(22px,3vw,28px);
+  border-top:1px solid var(--rule);
+}
+.dei-mark,.dei-blm{
+  display:inline-flex;flex:none;
+  border-radius:4px;overflow:hidden;
+  /* the flag and the BLM block both carry black; a hairline keeps their
+     edges off the dark page background */
+  box-shadow:0 0 0 1px rgba(246,241,230,.18);
+}
+.dei-mark svg{display:block;height:40px;width:auto}
+
+.dei-blm{
+  flex-direction:column;justify-content:center;
+  background:#000;color:#fff;
+  padding:4px 8px;
+  font-family:var(--font-body);
+  font-size:10px;font-weight:800;line-height:1.18;
+  letter-spacing:.02em;text-transform:uppercase;
+}
+.dei-blm .inv{background:#fff;color:#000;padding:0 2px;margin:1px -2px}
+
+@media (max-width:420px){
+  .dei-marks{gap:12px}
+  .dei-mark svg{height:34px}
+  .dei-blm{font-size:9px;padding:3px 7px}
+}
+
 /* ---------- invite ---------- */
 .invite{background:var(--white-200);color:var(--ink-dark)}
 .invite-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(32px,6vw,72px);align-items:start}
@@ -675,6 +707,38 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           in the room, who is doing the inviting, and whether our own habits are
           quietly narrowing the circle instead of widening it.
         </p>
+
+        <div class="dei-marks">
+          <span class="dei-mark" role="img" aria-label="Progress Pride flag">
+            <svg viewBox="0 0 64 40" width="64" height="40" aria-hidden="true" focusable="false">
+              <rect width="64" height="6.667" y="0"      fill="#E40303"/>
+              <rect width="64" height="6.667" y="6.667"  fill="#FF8C00"/>
+              <rect width="64" height="6.667" y="13.333" fill="#FFED00"/>
+              <rect width="64" height="6.667" y="20"     fill="#008026"/>
+              <rect width="64" height="6.667" y="26.667" fill="#24408E"/>
+              <rect width="64" height="6.667" y="33.333" fill="#732982"/>
+              <polygon points="0,0 34,20 0,40" fill="#000000"/>
+              <polygon points="0,0 30,20 0,40" fill="#613915"/>
+              <polygon points="0,0 26,20 0,40" fill="#74D7EE"/>
+              <polygon points="0,0 22,20 0,40" fill="#FFAFC8"/>
+              <polygon points="0,0 18,20 0,40" fill="#FFFFFF"/>
+              <polygon points="0,0 14,20 0,40" fill="#FFDA00"/>
+              <circle cx="5" cy="20" r="4" fill="none" stroke="#7902AA" stroke-width="1.8"/>
+            </svg>
+          </span>
+
+          <span class="dei-mark" role="img" aria-label="Equality">
+            <svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true" focusable="false">
+              <rect width="40" height="40" fill="#00009B"/>
+              <rect x="7.5" y="11" width="25" height="7" fill="#FFCC00"/>
+              <rect x="7.5" y="22" width="25" height="7" fill="#FFCC00"/>
+            </svg>
+          </span>
+
+          <span class="dei-blm" role="img" aria-label="Black Lives Matter">
+            <span>Black</span><span class="inv">Lives</span><span>Matter</span>
+          </span>
+        </div>
       </div>
     </div>
   </section>
