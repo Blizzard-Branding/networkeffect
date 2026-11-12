@@ -99,7 +99,8 @@ want social proof on there, add it once you have real quotes to use.
 - Tagline: *Connect. Contribute. Grow.*
 - Positioning line: *A business networking group done differently.*
 - **Where:** Sacramento, CA. The venue name and street address were removed
-  because the group may change locations.
+  because the group may change locations. The page says the exact address is
+  sent once a request reaches the visitor coordinator.
 
 **Draft copy written to fit the above.** Read it as a starting point and change
 anything that misrepresents the group:
