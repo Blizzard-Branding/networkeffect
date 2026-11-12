@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Network Effect | Connect. Contribute. Grow.</title>
-<meta name="description" content="A business networking group done differently. A trusted circle of independent professionals in Sacramento who refer each other with confidence. Wednesdays, 11:45am–1:30pm." />
+<meta name="description" content="An invite-only business networking group in Sacramento. A trusted circle of independent professionals who refer each other with confidence. Wednesdays, 11:45am–1:30pm." />
 
 <!-- Open Graph / social -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Network Effect | Connect. Contribute. Grow." />
-<meta property="og:description" content="A trusted circle of independent professionals in Sacramento who refer each other with confidence. We meet Wednesdays, 11:45am–1:30pm." />
+<meta property="og:description" content="An invite-only circle of independent professionals in Sacramento who refer each other with confidence. We meet Wednesdays, 11:45am–1:30pm." />
 <meta property="og:site_name" content="Network Effect" />
 <meta property="og:url" content="https://networkeffectsac.com/" />
 <meta property="og:locale" content="en_US" />
@@ -216,7 +216,15 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
   margin:30px 0 0;max-width:54ch;
   font-size:clamp(1.02rem,2.1vw,1.19rem);color:#C7D0DE;
 }
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:36px}
+.hero-note{
+  margin:20px 0 0;display:inline-block;
+  padding:8px 16px;border-radius:999px;
+  background:rgba(239,190,98,.13);
+  border:1px solid rgba(239,190,98,.32);
+  color:var(--orange-300);
+  font-size:.92rem;font-weight:500;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
 
 .hero-meta{
   display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:38px;
@@ -357,39 +365,39 @@ h1,h2,h3,.display{font-family:var(--font-display);font-weight:400;letter-spacing
 .belong p:not(.eyebrow){margin:0 0 18px;max-width:70ch;color:#C7D0DE;font-size:clamp(1rem,2vw,1.08rem)}
 .belong p:last-child{margin-bottom:0}
 
-/* ---------- register ---------- */
-.register{background:var(--white-200);color:var(--ink-dark)}
-.register-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(32px,6vw,72px);align-items:start}
-@media (max-width:900px){.register-inner{grid-template-columns:1fr}}
-.register h2{font-size:clamp(1.85rem,4.6vw,3rem)}
-.register-lede{margin-top:20px;max-width:48ch;color:var(--ink-dark-muted);font-size:1.03rem}
-.register-note{
+/* ---------- invite ---------- */
+.invite{background:var(--white-200);color:var(--ink-dark)}
+.invite-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.86fr);gap:clamp(32px,6vw,72px);align-items:start}
+@media (max-width:900px){.invite-inner{grid-template-columns:1fr}}
+.invite h2{font-size:clamp(1.85rem,4.6vw,3rem)}
+.invite-lede{margin-top:20px;max-width:48ch;color:var(--ink-dark-muted);font-size:1.03rem}
+.invite-note{
   margin-top:26px;padding:20px 22px;border-radius:var(--radius-sm);
   background:rgba(23,140,140,.1);border-left:3px solid var(--teal-500);
   font-size:.95rem;color:#2B3440;
 }
 
-.ticket-card{
+.invite-card{
   background:var(--white-50);
   border:1px solid rgba(17,22,42,.1);
   border-radius:var(--radius-md);
   padding:clamp(26px,4vw,38px);
   box-shadow:0 18px 44px -26px rgba(10,20,40,.35);
 }
-.ticket-kicker{
+.invite-kicker{
   margin:0 0 22px;font-family:var(--font-display);
   font-size:.74rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;
   color:var(--teal-900);
 }
-.ticket-rows{display:grid;gap:18px;margin:0 0 30px}
-.ticket-row{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start}
-.ticket-row dt{font-weight:700;font-size:.86rem;letter-spacing:.02em;color:var(--ink-dark-muted);padding-top:2px}
-.ticket-row dd{margin:0;font-size:1.04rem;line-height:1.45}
-.ticket-row dd small{display:block;font-size:.87rem;color:var(--ink-dark-muted);margin-top:4px}
-.ticket-row a{color:var(--teal-900)}
-@media (max-width:420px){.ticket-row{grid-template-columns:1fr;gap:2px}}
-.ticket-cta{width:100%;white-space:normal;text-align:center}
-.ticket-foot{margin:14px 0 0;font-size:.84rem;color:var(--ink-dark-muted);text-align:center}
+.invite-rows{display:grid;gap:18px;margin:0 0 30px}
+.invite-row{display:grid;grid-template-columns:76px 1fr;gap:16px;align-items:start}
+.invite-row dt{font-weight:700;font-size:.86rem;letter-spacing:.02em;color:var(--ink-dark-muted);padding-top:2px}
+.invite-row dd{margin:0;font-size:1.04rem;line-height:1.45}
+.invite-row dd small{display:block;font-size:.87rem;color:var(--ink-dark-muted);margin-top:4px}
+.invite-row a{color:var(--teal-900)}
+@media (max-width:420px){.invite-row{grid-template-columns:1fr;gap:2px}}
+.invite-cta{width:100%;white-space:normal;text-align:center}
+.invite-foot{margin:14px 0 0;font-size:.84rem;color:var(--ink-dark-muted);text-align:center}
 
 /* ---------- faq ---------- */
 .faq-list{display:grid;gap:0;border-top:1px solid var(--rule)}
@@ -434,7 +442,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
 </head>
 
 <body>
-<a class="skip" href="#register">Skip to registration</a>
+<a class="skip" href="#invite">Skip to the invite request</a>
 
 <header class="nav" id="nav">
   <div class="wrap nav-inner">
@@ -446,7 +454,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
       <a href="#meetings">Meetings</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-primary" href="#register"><span class="cta-long">Get tickets</span><span class="cta-short">Tickets</span></a>
+    <a class="btn btn-primary" href="#invite"><span class="cta-long">Get an invite</span><span class="cta-short">Invite</span></a>
   </div>
 </header>
 
@@ -463,8 +471,9 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
           A trusted circle of independent professionals in Sacramento who refer
           each other with confidence, and who show up every week to earn it.
         </p>
+        <p class="hero-note">Right now this is an invite-only group.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary btn-lg" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register on Eventbrite</a>
+          <a class="btn btn-primary btn-lg" href="https://forms.gle/QoSZNTqASBy7hyh88" target="_blank" rel="noopener">Get an invite</a>
         </div>
         <p class="hero-meta">
           <span><strong>Wednesdays</strong> · 11:45am–1:30pm</span>
@@ -560,16 +569,16 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
 
       <div class="grid steps">
         <article class="step reveal">
+          <h3>Request an invite</h3>
+          <p>Tell us who you are and what you do. It takes a couple of minutes and we read every request.</p>
+        </article>
+        <article class="step reveal">
+          <h3>We review it</h3>
+          <p>Everyone goes through a vetting process, including how many seats are open in your profession.</p>
+        </article>
+        <article class="step reveal">
           <h3>Come as a guest</h3>
-          <p>Register for a Wednesday meeting and sit in as a guest, to see whether the room suits you.</p>
-        </article>
-        <article class="step reveal">
-          <h3>Meet the members</h3>
-          <p>Get to know what people actually do, and let them get to know what you do. The first fifteen minutes are where most of that happens.</p>
-        </article>
-        <article class="step reveal">
-          <h3>Register</h3>
-          <p>Reserve your seat on Eventbrite so we know to expect you. It takes a minute and you get a reminder before the day.</p>
+          <p>If it looks like a fit, join us on a Wednesday. The first fifteen minutes are where most of the introductions happen.</p>
         </article>
         <article class="step reveal">
           <h3>Start contributing</h3>
@@ -603,10 +612,10 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
 
         <div class="meet-cta">
           <div>
-            <p class="label">Coming this Wednesday?</p>
-            <p class="note">Reserve a seat so we know to expect you.</p>
+            <p class="label">Invite only</p>
+            <p class="note">Request an invite and we will be in touch.</p>
           </div>
-          <a class="btn btn-dark" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register</a>
+          <a class="btn btn-dark" href="https://forms.gle/QoSZNTqASBy7hyh88" target="_blank" rel="noopener">Get an invite</a>
         </div>
       </div>
     </div>
@@ -697,51 +706,51 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
     </div>
   </section>
 
-  <!-- ================= REGISTER ================= -->
-  <!-- Registration is handled entirely by Eventbrite. There is no form on this
-       site, so there is no endpoint to configure and no attendee data here. -->
-  <section class="section register" id="register">
-    <div class="wrap register-inner">
+  <!-- ================= INVITE ================= -->
+  <!-- Invite requests go to a Google Form. There is no form on this site, so
+       there is no endpoint to configure and no applicant data held here. -->
+  <section class="section invite" id="invite">
+    <div class="wrap invite-inner">
       <div class="reveal">
-        <p class="eyebrow on-light">Come to a meeting</p>
-        <h2>Grab a seat for the next Wednesday.</h2>
-        <p class="register-lede">
-          Registration runs through Eventbrite, so you will get a confirmation
-          and a reminder before the day. Guests are welcome, so come and see
-          whether the room suits you before you think about joining.
+        <p class="eyebrow on-light">Invite only</p>
+        <h2>Right now this is an invite-only group.</h2>
+        <p class="invite-lede">
+          We keep the room small on purpose, so new members come in through a
+          short request rather than an open sign-up. Tell us who you are and
+          what you do, and we will take it from there.
         </p>
-        <div class="register-note">
-          <strong>Not sure yet?</strong> Register anyway and come as a guest.
-          There is no obligation to join, and seeing the room for yourself is
-          the point.
+        <div class="invite-note">
+          <strong>No obligation.</strong> Requesting an invite is not a
+          commitment to join. Most people visit a meeting first and decide
+          afterwards.
         </div>
       </div>
 
-      <div class="ticket-card reveal">
-        <p class="ticket-kicker">Network Effect · weekly meeting</p>
-        <dl class="ticket-rows">
-          <div class="ticket-row">
+      <aside class="invite-card reveal">
+        <p class="invite-kicker">Network Effect · weekly meeting</p>
+        <dl class="invite-rows">
+          <div class="invite-row">
             <dt>When</dt>
             <dd>Wednesdays, 11:45am – 1:30pm<small>Weekly, all year round.</small></dd>
           </div>
-          <div class="ticket-row">
+          <div class="invite-row">
             <dt>Where</dt>
             <dd>
               Sparkle Professional Cleaning<br />
               <a href="https://maps.google.com/?q=5580+Power+Inn+Rd,+Sacramento,+CA" target="_blank" rel="noopener">5580 Power Inn Rd, Sacramento</a>
             </dd>
           </div>
-          <div class="ticket-row">
+          <div class="invite-row">
             <dt>Who</dt>
-            <dd>Members and guests</dd>
+            <dd>Members and invited guests</dd>
           </div>
         </dl>
-        <a class="btn btn-primary btn-lg ticket-cta" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">
-          Register on Eventbrite
+        <a class="btn btn-primary btn-lg invite-cta" href="https://forms.gle/QoSZNTqASBy7hyh88" target="_blank" rel="noopener">
+          Get an invite
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
-        <p class="ticket-foot">Opens Eventbrite in a new tab. Ticket details and pricing are shown there.</p>
-      </div>
+        <p class="invite-foot">Opens a short form in a new tab. We read every request.</p>
+      </aside>
     </div>
   </section>
 
@@ -764,19 +773,18 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
         <details>
           <summary>Can I visit before joining?</summary>
           <p>
-            Yes. Visiting first is the best way to work out whether the group is
-            right for you. Register on Eventbrite for the Wednesday you want to
-            come along to, and we will be expecting you.
+            Yes, once you have an invite. Visiting is the best way to work out
+            whether the group is right for you, so say so in your request and we
+            will set up a Wednesday for you to sit in on.
           </p>
         </details>
         <details>
           <summary>What does it cost?</summary>
-          <!-- TODO: confirm this matches the Eventbrite listing, and add your
-               membership dues here if they differ from the meeting ticket. -->
+          <!-- TODO: replace with your real dues once they are settled. -->
           <p>
-            Whatever a seat at the meeting costs is shown on the
-            <a href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Eventbrite listing</a>.
-            Ask us about ongoing membership terms when you visit.
+            We will walk you through the current membership terms before you
+            commit to anything. Ask in your invite request if you would like to
+            know up front.
           </p>
         </details>
         <details>
@@ -827,10 +835,10 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
         <h2>Connect. Contribute. Grow.</h2>
         <p>
           The circle is only as good as the people in it. If that sounds like the
-          room you have been looking for, book a seat for this Wednesday.
+          room you have been looking for, ask us for an invite.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-dark btn-lg" href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register on Eventbrite</a>
+          <a class="btn btn-dark btn-lg" href="https://forms.gle/QoSZNTqASBy7hyh88" target="_blank" rel="noopener">Get an invite</a>
         </div>
       </div>
     </div>
@@ -845,7 +853,7 @@ details p{margin:0 0 24px;color:var(--ink-muted);max-width:68ch;font-size:.99rem
       <a href="#about">About</a>
       <a href="#prepare">First meeting</a>
       <a href="#meetings">Meetings</a>
-      <a href="https://www.eventbrite.com/e/network-effect-tickets-2002092173586" target="_blank" rel="noopener">Register</a>
+      <a href="https://forms.gle/QoSZNTqASBy7hyh88" target="_blank" rel="noopener">Get an invite</a>
     </nav>
   </div>
 </footer>

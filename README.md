@@ -34,27 +34,23 @@ absolute URLs pointing there, so if the site ever moves, update `og:url`,
 Any static host will do: Netlify, Vercel, Cloudflare Pages, GitHub Pages, or
 plain S3. Publish the repository root; `index.html` is the entry point.
 
-## Registration
+## Getting an invite
 
-There is no form on this site. Both the nav button and every call to action
-point at the Eventbrite listing:
+The group is invite-only. There is no form on this site and no open sign-up.
+Every call to action points at a Google Form:
 
 ```
-https://www.eventbrite.com/e/network-effect-tickets-2002092173586
+https://forms.gle/QoSZNTqASBy7hyh88
 ```
 
-That means no endpoint to configure, no spam filtering to worry about, and no
-attendee data held here. Eventbrite handles confirmations and reminders. If
-you ever move to a different event, search `index.html` for `eventbrite.com`;
-the URL appears in six places (hero, meeting card, registration card, closing
-CTA, footer, and the "how it works" steps).
+No endpoint to configure, no spam filtering to worry about, and no applicant
+data held here. The link appears in five places: the nav button, the hero, the
+meetings card, the invite section, and the footer. To change it, search
+`index.html` for `forms.gle`.
 
-Eventbrite is the only outbound link on the page. There is deliberately no
-other contact route, so anyone with a question has to register or turn up.
-Worth adding an email address if that proves too narrow.
-
-Prefer an in-page checkout? Eventbrite's embedded widget is a drop-in
-replacement for the registration card.
+Eventbrite was removed when the group moved to invite-only. If meeting
+registration comes back for confirmed members, it would belong behind the
+invite rather than on the public page.
 
 ## Before you go live
 
@@ -67,7 +63,7 @@ comment in `index.html` at the spot it applies to.
 | Share image | `og:image` in `<head>` | Removed with the logo, so link previews currently show no image. Add a 1200×630 image plus `og:image:width` / `og:image:height`, and switch `twitter:card` to `summary_large_image`. |
 | Logo | Nav, hero, footer, favicon | None chosen. Placeholders in place; see **Logo** below. |
 | Professions list | "Who it's for" section | Swap the placeholder tags for the trades actually represented in the room. |
-| Cost | FAQ | Points at the Eventbrite listing. Add membership dues if they differ from the meeting ticket. |
+| Cost | FAQ | Currently answered as "we will walk you through the terms." Replace with your real dues. |
 
 Nothing on the page invents a member count, a testimonial, or a price. If you
 want social proof on there, add it once you have real quotes to use.
@@ -91,6 +87,8 @@ want social proof on there, add it once you have real quotes to use.
 
 **Supplied directly:**
 
+- The invite-only positioning and the "Get an invite" call to action.
+
 - The whole "Preparing for your first meeting" section: bring business cards,
   prepare a 30-second pitch covering who you are, what you do, and who makes a
   great referral for you; a first impression rather than a sales pitch. The
@@ -107,7 +105,9 @@ anything that misrepresents the group:
 
 - The "Referrals are a by-product of trust, not a quota" heading and lede
 - The one-line descriptions under each of the four commitments
-- The four "How it works" steps
+- The four "How it works" steps, including the request and review stages,
+  which are inferred from the invite-only model and the vetting process the
+  FAQ describes rather than given
 - The "Who it's for" section
 - The FAQ answers
 
